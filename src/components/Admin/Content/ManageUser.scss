@@ -1,0 +1,162 @@
+.manage-user-container{
+    padding:10px;
+
+    .title{
+        font-weight: 600;
+        font-size: 20px;
+       
+
+    }
+    .users-content{
+        .btn-add-new{
+            margin:15px 0;
+        }
+        .table-users-container{
+
+            width: 100%;
+            
+
+
+        }
+
+    }
+}
+.modal-add-user{
+    .img-preview{
+        border: 1px solid black;
+        height: 150px;
+        border-style: dashed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:antiquewhite;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+
+        }
+    }
+}
+label.form-label.label-upload{
+display :flex;
+justify-content: center;
+align-items: center;
+gap:5px;
+border: 1px solid black;
+width: fit-content;
+border-radius: 5px;
+background-color: rgb(182, 182, 174);
+padding :3px 10px;
+border :none;
+cursor:pointer;
+&:hover{
+    background-color: rgb(128, 70, 70);
+}
+}
+.btn-editt{
+    display :flex;
+}
+/* Định dạng cho dropdown toggle */
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    color: #007bff; /* Màu chữ */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Định dạng khi hover vào dropdown toggle */
+.dropdown-toggle:hover {
+    color: #0056b3; /* Màu chữ khi hover */
+}
+
+/* Định dạng cho dropdown menu */
+.dropdown-menu {
+    background-color: #f8f9fa; /* Màu nền của dropdown menu */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+    border: none;
+    border-radius: 0.25rem;
+}
+
+/* Định dạng cho dropdown item */
+.dropdown-item {
+    color: #333; /* Màu chữ của dropdown item */
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Định dạng khi hover vào dropdown item */
+.dropdown-item:hover {
+    background-color: #e9ecef; /* Màu nền của dropdown item khi hover */
+}
+.user-addexp {
+    display: flex;
+    justify-content: flex-end; /* Phân bố đều khoảng trống giữa các phần tử con */
+    align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+}
+
+
+.user-find {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bulk-action select,
+.user-filter select {
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.bulk-action .apply-btn,
+.user-filter .search-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.bulk-action .apply-btn:hover,
+.user-filter .search-btn:hover {
+    background-color: #0056b3;
+}
+.user-filter {
+    display: flex;
+    align-items: center;
+}
+
+.user-filter select {
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 120px; /* Điều chỉnh chiều rộng của select */
+}
+
+.user-filter input[type="text"] {
+    flex: 1; /* Tự động mở rộng để lấp đầy không gian còn lại */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    min-width: 0; /* Đảm bảo không bị giới hạn bởi kích thước tối thiểu */
+}
+
+.user-filter .search-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    min-width: 100px; /* Điều chỉnh kích thước tối thiểu của nút */
+}
