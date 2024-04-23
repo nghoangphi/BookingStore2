@@ -10,6 +10,9 @@ import { RiFlag2Line } from 'react-icons/ri';
 import { IoDiamondOutline } from "react-icons/io5";
 import profileImage from '../../assets/gaixinh.jpg';
 import { useEffect } from "react";
+import { FaHome } from "react-icons/fa";
+import { IoLogOutSharp } from "react-icons/io5";
+
 import { Nav, NavDropdown } from "react-bootstrap";
 const Admin = (props) => {
     const [collapsed, setCollapsed] = useState(false); // dung de thay doi trang thai nut Menu
@@ -71,11 +74,12 @@ const Admin = (props) => {
                                 <img src={profileImage} alt="Profile" className="profile-image" />
 
                                 <NavDropdown title="Hi, I'm Admin" id="basic-nav-dropdown">
-                                    <NavDropdown.Item >Login</NavDropdown.Item>
-                                    <NavDropdown.Item >
-                                        Logout
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item >Profile</NavDropdown.Item>
+                                    <NavDropdown.Item >Edit Profile</NavDropdown.Item>
+                                    <NavDropdown.Item >Change Password</NavDropdown.Item>
+                                    <span className="">Vendor Dashboard</span>
+                                    <NavDropdown.Item >Dashboard</NavDropdown.Item>
+                                    <NavDropdown.Item ><FaHome />Homepage</NavDropdown.Item>
+                                    <NavDropdown.Item ><IoLogOutSharp />Logout</NavDropdown.Item>
 
                                 </NavDropdown>
                             </Nav>
@@ -106,7 +110,7 @@ const Admin = (props) => {
             {/* Same as */}
             <ToastContainer />
 
-        </div>
+        </div >
     )
 }
 export default Admin;

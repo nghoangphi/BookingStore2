@@ -33,10 +33,12 @@ const SideBar = (props) => {
                 <SidebarHeader>
                     <div
                         style={{
-                            padding: '24px',
+                            backgroundColor: 'white',
+                            padding: '20px',
+                            color: 'black',
                             textTransform: 'uppercase',
                             fontWeight: 'bold',
-                            fontSize: 14,
+                            fontSize: 18,
                             letterSpacing: '1px',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',

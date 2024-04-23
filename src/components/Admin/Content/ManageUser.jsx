@@ -7,6 +7,8 @@ import './ManageUser.scss';
 import { FcPlus } from 'react-icons/fc';
 import { useQuery } from '@tanstack/react-query';
 import { getAllUsers } from '../../../services/apiServices';
+import { CSVLink, CSVDownload } from "react-csv";
+import { FaCloudDownloadAlt } from "react-icons/fa";
 
 const ManageUser = () => {
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
@@ -64,22 +66,35 @@ const ManageUser = () => {
 
         setListUsers(filteredUsers);
     };
+    const csvData = [
+        ["ID", "Name", "Email", "Credit", "Phone", "Role", "Date"],
+        ...listUsers.map(user => [user.id, user.name, user.email, user.credit, user.phone, user.role, user.date])
+    ];
 
     return (
         <div className="manage-user-container">
             <div className="title">All Users</div>
             <div className="users-content">
-                <div className="user-addexp">
+                <div
+                    style={{ gap: "8px" }}
+                    className="user-addexp">
+
                     <div className="btn-add-new">
-                        <button className="btn btn-primary" onClick={() => setShowModalCreateUser(true)}>
+                        <button
+
+                            className="btn btn-primary" onClick={() => setShowModalCreateUser(true)}>
                             <FcPlus /> Add new users
                         </button>
                     </div>
                     <div className="btn-export">
-                        <a className="btn btn-warning btn-icon" href="" target="_blank" title="Export to excel">
-                            Export to excel
-                        </a>
+                        <CSVLink
+                            filename={"my-file.csv"}
+                            className="btn btn-warning"
+
+                            data={csvData}> <FaCloudDownloadAlt /> Export to excel</CSVLink>
+
                     </div>
+
                 </div>
                 <div className="user-find">
                     <div className="bulk-action">
@@ -132,7 +147,7 @@ const ManageUser = () => {
                     updateUserList={updateUserList}
                 />
             </div>
-        </div>
+        </div >
     );
 };
 
