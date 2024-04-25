@@ -12,8 +12,10 @@ import { FaHome } from "react-icons/fa";
 import { IoLogOutSharp } from "react-icons/io5";
 import React from "react";
 import ReactFlagsSelect from "react-flags-select";
-
+import { BsFillEyeFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import { Nav, NavDropdown } from "react-bootstrap";
+import Footer from "./Footer/Footer";
 const Admin = (props) => {
     const [collapsed, setCollapsed] = useState(false); // dung de thay doi trang thai nut Menu
     const [showDropdown, setShowDropdown] = useState(false);
@@ -41,11 +43,17 @@ const Admin = (props) => {
             <div className="admin-content">
                 <div className="admin-header">
                     <FaBars onClick={() => setCollapsed(!collapsed)} />
+                    <Link to="/admins/manage-users" className="admin-home-link">
+                        <BsFillEyeFill />
+                        Home
+                    </Link>
+
+
 
 
                     <div className="header-right">
-                        <button className="upgrade-button">
-                            <IoDiamondOutline className="diamond-icon" />
+                        <button className="btn btn-info">
+                            <IoDiamondOutline className="diamond-icon " />
                             Upgrade
                         </button>
                         <div className="flags-country">
@@ -110,8 +118,9 @@ const Admin = (props) => {
             />
             {/* Same as */}
             <ToastContainer />
-
+            
         </div >
+       
     )
 }
 export default Admin;

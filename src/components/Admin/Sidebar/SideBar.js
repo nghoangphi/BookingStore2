@@ -79,7 +79,9 @@ const SideBar = (props) => {
                             <MenuItem icon={<GrUserSettings />}> All Users
                                 <Link to="/admins/manage-users"> </Link>
                             </MenuItem>
-                            <MenuItem> Role Manager</MenuItem>
+                            <MenuItem> Role Manager
+                                <Link to="/admins/role-managers"> </Link>
+                            </MenuItem>
                             <MenuItem> Subcribers</MenuItem>
                             <MenuItem suffix={<span className="badge yellow">1</span>}> Upgrade Request</MenuItem>
                             <MenuItem> Verification Request</MenuItem>

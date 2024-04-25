@@ -160,3 +160,41 @@ cursor:pointer;
     color: #fff;
     min-width: 100px; /* Điều chỉnh kích thước tối thiểu của nút */
 }
+.pagination {
+    display: flex; /* Hiển thị trên cùng một hàng */
+    list-style: none; /* Loại bỏ dấu đầu dòng */
+    padding: 0;
+    margin: 0;
+    gap :5px;
+}
+
+.pagination__link {
+    display: inline-block; /* Hiển thị trên cùng một hàng */
+    margin-right: 5px; /* Khoảng cách giữa các liên kết */
+    padding: 8px 12px; /* Độ lớn của nút */
+    border: 1px solid #ccc; /* Viền nút */
+    cursor: pointer; /* Con trỏ chuột thành dấu nhấp chuột */
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    color: #333; /* Màu chữ */
+    font-size: 10;
+
+}
+
+.pagination__link--disabled {
+    pointer-events: none; /* Vô hiệu hóa sự kiện click khi bị vô hiệu hóa */
+    color: #aaa; /* Màu chữ khi bị vô hiệu hóa */
+    font-size: 10;
+
+}
+
+.pagination__link--active {
+    background-color: #007bff; /* Màu nền cho trang hiện tại */
+    color: #fff; /* Màu chữ cho trang hiện tại */
+    font-size: 20;
+}
+.paganite {
+    display: flex;
+    justify-content: center; /* Canh giữa các thành phần bên trong theo chiều ngang */
+    margin-top: 20px; /* Khoảng cách từ phần trên của trang */
+}
+
