@@ -11,7 +11,7 @@ const ModalUpdateUser = ({ show, setShow, dataUpdate, updateUserInList }) => {
     const [credit, setCredit] = useState('');
     const [role, setRole] = useState('USER');
     const [date, setDate] = useState('');
-
+    console.log(name, "name")
     useEffect(() => {
         if (dataUpdate) {
             setEmail(dataUpdate.email || '');
@@ -22,20 +22,29 @@ const ModalUpdateUser = ({ show, setShow, dataUpdate, updateUserInList }) => {
             setDate(dataUpdate.date || '');
         }
     }, [dataUpdate]);
+    console.log(dataUpdate, "dataupdate")
 
     const handleSubmitUpdateUser = async () => {
         try {
             const updatedUser = {
                 ...dataUpdate,
                 name,
+                email,
                 credit,
+                phone,
                 role,
                 date,
             };
+            console.log(updatedUser, "updatedUser")
+            putUpdateUser(dataUpdate.id, name, email, credit, phone, role, date).then(() => {
+                toast.success('User updated successfully')
+                updateUserInList(updatedUser)
 
-            await putUpdateUser(dataUpdate.id, updatedUser); // Pass updatedUser object
-            toast.success('User updated successfully');
-            updateUserInList(updatedUser); // Update user in ManageUser list
+
+
+
+
+            }) // Pass updatedUser object
 
             handleClose();
         } catch (error) {

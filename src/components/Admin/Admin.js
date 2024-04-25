@@ -1,17 +1,17 @@
-import SideBar from "./SideBar";
+import SideBar from "./Sidebar/SideBar";
 import './Admin.scss';
 import { useState } from "react";
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaBars, FaBell } from 'react-icons/fa';
-import { BsFillCaretDownFill } from 'react-icons/bs';
-import { RiFlag2Line } from 'react-icons/ri';
 import { IoDiamondOutline } from "react-icons/io5";
 import profileImage from '../../assets/gaixinh.jpg';
 import { useEffect } from "react";
 import { FaHome } from "react-icons/fa";
 import { IoLogOutSharp } from "react-icons/io5";
+import React from "react";
+import ReactFlagsSelect from "react-flags-select";
 
 import { Nav, NavDropdown } from "react-bootstrap";
 const Admin = (props) => {
@@ -27,6 +27,10 @@ const Admin = (props) => {
     const handleLogout = () => {
         // Xử lý logout ở đây
         setShowDropdown(false); // Đóng dropdown sau khi logout
+    };
+    const [selected, setSelected] = useState("");
+    const handleLanguageSelect = (countryCode) => {
+        setSelected(countryCode);
     };
 
     return (
@@ -44,21 +48,18 @@ const Admin = (props) => {
                             <IoDiamondOutline className="diamond-icon" />
                             Upgrade
                         </button>
-
-                        <select className="language-select">
-                            <option value="english">
-                                <RiFlag2Line className="flag-icon" />
-                                ENGLISH
-                            </option>
-                            <option value="japan">
-                                <RiFlag2Line className="flag-icon" />
-                                JAPAN
-                            </option>
-                            <option value="french">
-                                <RiFlag2Line className="flag-icon" />
-                                FRENCH
-                            </option>
-                        </select>
+                        <div className="flags-country">
+                            <ReactFlagsSelect
+                                selectedSize={13}
+                                disabled={false}
+                                defaultCountry="GB"
+                                selected={selected}
+                                onSelect={handleLanguageSelect}
+                                countries={["US", "GB", "JP", "RS", "DE", "VN"]}
+                                customLabels={{ US: "United State", GB: "English", JP: "Japan", FR: "France", DE: "German", VN: "VietNam" }}
+                                placeholder="Select Language"
+                            />
+                        </div>
 
                         <div className="notification-icon">
                             <FaBell className="bell-icon" />

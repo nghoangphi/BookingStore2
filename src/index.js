@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import User from './components/User/User';
 import Admin from './components/Admin/Admin';
 import HomePage from './components/Home/HomePage';
-import Dashboard from './components/Admin/Content/Dashboard';
+import Dashboard from './components/Admin/Dashboard/Dashboard';
 import ManageUser from './components/Admin/Content/ManageUser';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,7 +22,7 @@ root.render(
           <Route index element={<HomePage />} />
           <Route path="users" element={<User />} />
 
-        </Route>q
+        </Route>
         <Route path="admins" element={<Admin />}>
           <Route index element={<Dashboard />} />
           <Route path="manage-users" element={<ManageUser />}></Route>
