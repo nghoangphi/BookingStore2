@@ -23,7 +23,7 @@ const getAllUsers = () => {
             throw error; // Rethrow the error to handle it further up the chain
         });
 }
-const putUpdateUser = (id, name, email, credit, phone, role, date, image) => {
+const putUpdateUser = (id, name, email, credit, phone, role, date) => {
     let data = {
         id: id,
         name: name,
@@ -32,9 +32,9 @@ const putUpdateUser = (id, name, email, credit, phone, role, date, image) => {
         phone: phone,
         role: role,
         date: date,
-        image: image
+
     }
-    return axios.put('updateuser', data)
+    return axios.put(`updateuser/${id}`, data)
 }
 const deleteUser = async (userId) => {
     try {

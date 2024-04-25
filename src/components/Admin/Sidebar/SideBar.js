@@ -14,7 +14,7 @@ import {
 } from 'react-pro-sidebar';
 
 import { FaTachometerAlt } from 'react-icons/fa';
-import sidebarBg from '../../assets/anh2.jpg';
+import sidebarBg from '../../../assets/anh2.jpg';
 import { HiUsers } from "react-icons/hi";
 import { GrUserSettings } from "react-icons/gr";
 
@@ -49,7 +49,7 @@ const SideBar = (props) => {
                     </div>
                 </SidebarHeader>
 
-                <SidebarContent>
+                <SidebarContent style={{ color: 'white' }}>
                     <span className="badge red">CONTENT</span>
                     <Menu iconShape="circle">
                         <MenuItem
@@ -101,9 +101,9 @@ const SideBar = (props) => {
                             className="sidebar-btn"
                             rel="noopener noreferrer"
                         >
-                            <FaFacebook />
+                            <FaFacebook className='text-primary' />
 
-                            <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                            <span className='text-primary' style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                                 PHIHOANG
                             </span>
                         </a>

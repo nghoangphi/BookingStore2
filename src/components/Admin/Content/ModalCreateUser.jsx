@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { toast } from 'react-toastify';
 import { postCreateNewUser } from '../../../services/apiServices';
 import { getAllUsers } from '../../../services/apiServices';
+import Joi from 'joi';
+
 const ModalCreateUser = (props) => {
     const { show, setListUsers, setShow } = props;
     const [name, setName] = useState('');
@@ -14,37 +16,48 @@ const ModalCreateUser = (props) => {
     const [date, setDate] = useState('');
     // const [image, setImage] = useState(null); // Use null instead of empty string
     // const [previewImage, setPreviewImage] = useState('');
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
+    // const validateEmail = (email) => {
+    //     return String(email)
+    //         .toLowerCase()
+    //         .match(
+    //             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    //         );
+    // };
+
+    const schema = Joi.object({
+        name: Joi.string().required(),
+        email: Joi.string().email({ tlds: { allow: false } }).required(),
+        credit: Joi.number().required(),
+        phone: Joi.string().required(),
+        role: Joi.string().valid('USER', 'ADMIN').required(),
+        date: Joi.date().iso().required(),
+    });
+
+    const validateForm = (data) => {
+        const { error } = schema.validate(data, { abortEarly: false });
+        if (error) {
+            const errorMessage = error.details.map((detail) => detail.message).join('; ');
+            throw new Error(errorMessage);
+        }
     };
 
-
-
     const handleSubmitCreateUser = async () => {
-        // Validate email
-        if (!validateEmail(email)) {
-            toast.error('Invalid email');
-            return;
-        }
-
-        // Submit data to server
         try {
+            // Validate form data
+            validateForm({ name, email, credit, phone, role, date });
 
-            await postCreateNewUser(name, email, credit, phone, role, date); // Call API service to create new user
-
+            // If validation passes, continue with API call
+            await postCreateNewUser(name, email, credit, phone, role, date);
             toast.success('User created successfully');
-            const abc = await getAllUsers();
-            setListUsers(abc)
+
+            // Update user list
+            const users = await getAllUsers();
+            setListUsers(users);
 
             handleClose();
-
         } catch (error) {
             console.error('Error creating user:', error);
-            toast.error('Failed to create user');
+            toast.error('Failed to create user: ' + error.message);
         }
     };
 

@@ -139,6 +139,8 @@ const ManageUser = () => {
                     setShow={setShowModalUpdateUser}
                     dataUpdate={dataUpdate}
                     updateUserInList={updateUserList}
+                    listUsers={listUsers}
+                    setListUsers={setListUsers}
                 />
                 <DeleteUser
                     user={selectedUser}
