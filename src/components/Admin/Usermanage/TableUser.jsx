@@ -89,12 +89,12 @@ const TableUser = (props) => {
     return (
         <>
             {data && data.length > 0 ? (
-                <table className="table table-hover table-bordered">
+                <table className="table table-hover table-bordered table-responsive">
                     <thead>
                         <tr>
                             <th scope="col">
                                 <FontAwesomeIcon
-                                    style={{ color: "#74b7fa" }}
+                                    style={{ color: "#74b7fa", cursor: 'pointer' }}
                                     icon={selectAll ? faCheckSquare : faSquare}
                                     onClick={handleSelectAll}
                                 />
@@ -159,25 +159,28 @@ const TableUser = (props) => {
                                 </tr>
                             ))}
                     </tbody>
-                    <div className='paginate'>
-                        <ReactPaginate
 
-                            previousLabel={"← Previous"}
-                            nextLabel={"Next →"}
-                            pageCount={pageCount}
-                            onPageChange={handlePageClick}
-                            containerClassName={"pagination"}
-                            previousLinkClassName={"pagination__link"}
-                            nextLinkClassName={"pagination__link"}
-                            disabledClassName={"pagination__link--disabled"}
-                            activeClassName={"pagination__link--active"}
-                        />
-                    </div>
+
+
                 </table>
+
             ) : (
                 <div>No users found.</div>
             )}
+            <div className='paganite'>
+                <ReactPaginate
 
+                    previousLabel={"← Previous"}
+                    nextLabel={"Next →"}
+                    pageCount={pageCount}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    previousLinkClassName={"pagination__link"}
+                    nextLinkClassName={"pagination__link"}
+                    disabledClassName={"pagination__link--disabled"}
+                    activeClassName={"pagination__link--active"}
+                />
+            </div>
             <ViewUser user={selectedUser} show={showViewModal} handleClose={handleCloseViewModal} />
 
             <DeleteUser

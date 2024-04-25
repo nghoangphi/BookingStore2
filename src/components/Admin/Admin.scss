@@ -21,6 +21,7 @@
 .header-right {
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 /* Upgrade button */
@@ -50,7 +51,7 @@
 /* Notification icon */
 .notification-icon {
     position: relative;
-    margin-right: 20px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -176,4 +177,16 @@ a {
     height: calc(100vh - 69px);
 
 
+}
+.admin-home-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333; /* Màu chữ của Home */
+    font-weight: bold; /* Độ đậm của chữ */
+    margin-left: -575px; /* Khoảng cách giữa icon và chữ Home */
+}
+
+.admin-home-link svg {
+    margin-right: 5px; /* Khoảng cách giữa biểu tượng và văn bản */
 }
